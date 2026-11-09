@@ -1,0 +1,339 @@
+#wgm {
+    --wgm-line: #43556d;
+    --wgm-panel: rgb(19 32 50 / 96%);
+    --wgm-card: #203149;
+    --wgm-text: #f3f7ff;
+    --wgm-muted: #bccbdf;
+    --wgm-accent: #175ab7;
+    max-width: 78rem;
+    margin-inline: auto;
+    color: var(--wgm-text);
+}
+#wgm .wgm-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: clamp(1rem, 3vw, 1.8rem);
+    border: 1px solid var(--wgm-line);
+    border-radius: 1rem;
+    background: linear-gradient(110deg, #275e9c55, transparent 72%), var(--wgm-panel);
+}
+#wgm .wgm-hero h2 {
+    display: flex;
+    align-items: center;
+    gap: .4em;
+    margin: .2rem 0 .45rem;
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+#wgm .wgm-hero .wgm-logo {
+    flex: 0 0 auto;
+    width: 1.2em;
+    height: 1.2em;
+}
+#wgm .wgm-hero p, #wgm .wgm-interface p {
+    margin: .35rem 0;
+}
+#wgm .wgm-brand {
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    opacity: .76;
+}
+#wgm .wgm-toolbar, #wgm .wgm-interface-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .6rem 1rem;
+}
+#wgm .wgm-toolbar {
+    margin-top: .85rem;
+}
+#wgm #wgm-summary, #wgm .wgm-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem;
+}
+#wgm .wgm-badge {
+    display: inline-block;
+    padding: .22rem .58rem;
+    border: 1px solid var(--wgm-line);
+    border-radius: 999px;
+    background: var(--wgm-card);
+    font-size: .78rem;
+    line-height: 1.35;
+}
+#wgm .wgm-live {
+    color: #075739;
+    border-color: #b9e1ce;
+    background: #e1f6ec;
+}
+#wgm .wgm-activity {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: .55rem;
+    height: .55rem;
+    margin-inline: .2rem;
+    border-radius: 50%;
+    background: #65edaa;
+}
+#wgm .wgm-activity::after {
+    position: absolute;
+    inset: -3px;
+    border: 1px solid #65edaa;
+    border-radius: inherit;
+    content: "";
+    animation: wgm-pulse 1.8s ease-out infinite;
+}
+@keyframes wgm-pulse {
+    from { transform: scale(.7); opacity: .95; }
+    to { transform: scale(1.7); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #wgm .wgm-activity::after {
+        animation: none;
+    }
+}
+#wgm .wgm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem;
+    margin: .5rem 0;
+}
+#wgm .wgm-interface {
+    margin: 1rem 0;
+    padding: clamp(.85rem, 2.2vw, 1.35rem);
+    border: 1px solid var(--wgm-line);
+    border-radius: .9rem;
+    background: var(--wgm-panel);
+    overflow-wrap: anywhere;
+}
+#wgm .wgm-interface h3, #wgm .wgm-peer h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+}
+#wgm .wgm-interface-settings {
+    margin: .6rem 0;
+}
+#wgm summary {
+    cursor: pointer;
+    font-size: .84rem;
+}
+#wgm .wgm-clients {
+    display: grid;
+    gap: .55rem;
+}
+#wgm .wgm-peer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .6rem 1rem;
+    padding: .75rem .85rem;
+    border: 1px solid var(--wgm-line);
+    border-radius: .65rem;
+    background: var(--wgm-card);
+}
+#wgm .wgm-peer-side {
+    text-align: right;
+}
+#wgm .wgm-peer-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .35rem;
+    margin-top: .5rem;
+}
+#wgm .wgm-peer-tools > button {
+    appearance: none;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    min-width: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: .4rem;
+    background: #3b4d65;
+    color: var(--wgm-text);
+    cursor: pointer;
+}
+#wgm .wgm-peer-tools > button:hover:not(:disabled) {
+    background: #526b8a;
+}
+#wgm .wgm-peer-tools > button:focus-visible {
+    outline: 2px solid #a7d5ff;
+    outline-offset: 2px;
+}
+#wgm .wgm-peer-tools > button:disabled {
+    opacity: .4;
+    cursor: default;
+}
+#wgm .wgm-peer-tool svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+#wgm .wgm-peer-tools > .wgm-peer-delete:hover {
+    background: #9e2833;
+}
+#wgm .wgm-peer-tools > .wgm-peer-toggle {
+    justify-items: start;
+    width: 2.85rem;
+    height: 1.6rem;
+    padding-inline: .18rem;
+    border-radius: 999px;
+    background: #748198;
+}
+#wgm .wgm-peer-tools > .wgm-peer-toggle[aria-checked="true"] {
+    justify-items: end;
+    background: #aa2934;
+}
+#wgm .wgm-peer-toggle::after {
+    content: "";
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: #fff;
+}
+#wgm .wgm-primary, #wgm .wgm-primary:hover {
+    color: #fff;
+    border-color: var(--wgm-accent);
+    background: var(--wgm-accent);
+}
+#wgm .wgm-traffic, #wgm .wgm-addresses {
+    font-variant-numeric: tabular-nums;
+}
+#wgm .wgm-muted {
+    color: var(--wgm-muted);
+    font-size: .85rem;
+}
+#wgm .wgm-peer-address {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .2rem .9rem;
+    margin: .35rem 0;
+}
+#wgm .wgm-profile-help {
+    max-width: 22rem;
+}
+#wgm .wgm-empty {
+    padding: 1rem;
+    border: 1px dashed var(--wgm-line);
+    border-radius: .65rem;
+}
+#wgm #wgm-dialog {
+    box-sizing: border-box;
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: min(44rem, calc(100vw - 2rem));
+    min-width: 0;
+    max-height: 90vh;
+    overflow: auto;
+    padding: 1.25rem;
+    border: 1px solid var(--wgm-line);
+    border-radius: .5rem;
+    color-scheme: dark;
+    background: #132032;
+    color: var(--wgm-text);
+}
+#wgm #wgm-dialog-title {
+    margin: 0 0 .8rem;
+    padding: 0 0 .65rem;
+    border: 0;
+    border-bottom: 1px solid var(--wgm-line);
+    background: none;
+    color: inherit;
+}
+#wgm #wgm-dialog input:not([type=checkbox]), #wgm #wgm-dialog textarea {
+    background: var(--wgm-card);
+    color: var(--wgm-text);
+    border: 1px solid var(--wgm-line);
+}
+#wgm #wgm-dialog input::placeholder, #wgm #wgm-dialog textarea::placeholder {
+    color: var(--wgm-muted);
+}
+#wgm #wgm-dialog button.cbi-button {
+    border-color: var(--wgm-line);
+    background: var(--wgm-card);
+    color: var(--wgm-text);
+}
+#wgm #wgm-dialog button.cbi-button-apply {
+    background: var(--wgm-accent);
+}
+#wgm #wgm-dialog .wgm-error {
+    color: #ff9292;
+}
+#wgm dialog::backdrop {
+    background: #0008;
+}
+#wgm .wgm-field {
+    display: block;
+    margin: .65rem 0;
+}
+#wgm .wgm-field span {
+    display: block;
+    margin-bottom: .2rem;
+}
+#wgm .wgm-field:has(input[type=checkbox]) {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+#wgm input:not([type=checkbox]), #wgm textarea {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+#wgm textarea {
+    font-family: monospace;
+    min-height: 9rem;
+}
+#wgm .wgm-error {
+    color: #d23535;
+}
+#wgm #wgm-dialog.wgm-qr-dialog {
+    width: min(33rem, calc(100vw - 2rem));
+    text-align: center;
+}
+#wgm .wgm-qr-dialog .wgm-actions {
+    justify-content: center;
+}
+#wgm .wgm-qr-dialog svg {
+    display: block;
+    width: min(23rem, 100%);
+    height: auto;
+    margin: .8rem auto;
+    shape-rendering: crispEdges;
+}
+@media (max-width: 39rem) {
+    #wgm .wgm-peer {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    #wgm .wgm-peer-side {
+        text-align: left;
+    }
+    #wgm .wgm-peer-tools {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}

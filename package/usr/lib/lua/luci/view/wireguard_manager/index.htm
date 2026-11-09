@@ -1,0 +1,28 @@
+<%+header%>
+<link rel="stylesheet" href="<%=resource%>/wireguard-manager/manager.css?v=6">
+<div id="wgm" data-api="<%=luci.dispatcher.build_url('admin','network','wireguard_manager','api')%>"
+     data-token="<%=luci.dispatcher.context.authtoken%>">
+    <div class="wgm-hero">
+        <div>
+            <div class="wgm-brand">WIREGUARD</div>
+            <h2><img class="wgm-logo" src="<%=resource%>/wireguard-manager/wireguard-logo.png" alt="" width="64" height="64">WireGuard 管理</h2>
+            <p>创建客户端，扫码连接。集中管理WireGuard的 VPN 隧道。</p>
+        </div>
+        <div class="wgm-actions">
+            <button type="button" class="cbi-button cbi-button-add" data-action="create_server">新建服务端</button>
+            <button type="button" class="cbi-button cbi-button-add" data-action="create_client">新建客户端隧道</button>
+        </div>
+    </div>
+    <div class="wgm-toolbar">
+        <div id="wgm-summary"></div>
+        <div class="wgm-actions">
+            <span id="wgm-status" role="status" aria-live="polite">正在读取接口…</span>
+            <button type="button" class="cbi-button cbi-button-action" data-action="refresh">刷新</button>
+        </div>
+    </div>
+    <div id="wgm-interfaces"></div>
+    <dialog id="wgm-dialog" aria-labelledby="wgm-dialog-title"></dialog>
+</div>
+<script src="<%=resource%>/wireguard-manager/qrcodegen.js?v=1"></script>
+<script src="<%=resource%>/wireguard-manager/manager.js?v=5"></script>
+<%+footer%>
